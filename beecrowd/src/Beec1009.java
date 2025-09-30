@@ -7,8 +7,8 @@ public class Beec1009 {
         String name = input.nextLine();
         double salary = input.nextDouble();
         double value = input.nextDouble();
-
-        double total = salary + (value * 0.15);
+        double bonus = value * 0.15;
+        double total = salary + bonus;
 
         System.out.printf("TOTAL = R$ %.2f%n", total);
     }
