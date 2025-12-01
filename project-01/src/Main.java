@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -19,14 +20,14 @@ public class Main extends PApplet {
     @Override
     public void setup() {
         try {
-            String v1 =  JOptionPane.showInputDialog(null, "Вводи ширину доски:");
-            String v2 =  JOptionPane.showInputDialog(null, "Вводи высоту доски:");
+            String v1 = JOptionPane.showInputDialog(null, "Вводи ширину доски:");
+            String v2 = JOptionPane.showInputDialog(null, "Вводи высоту доски:");
             //"123" -> 123
             width = Integer.parseInt(v1);
             height = Integer.parseInt(v2);
-        }catch (Exception e) {
-            String v1 =  JOptionPane.showInputDialog(null, "Вводи ширину доски:");
-            String v2 =  JOptionPane.showInputDialog(null, "Вводи высоту доски:");
+        } catch (Exception e) {
+            String v1 = JOptionPane.showInputDialog(null, "Вводи ширину доски:");
+            String v2 = JOptionPane.showInputDialog(null, "Вводи высоту доски:");
             //"123" -> 123
             width = Integer.parseInt(v1);
             height = Integer.parseInt(v2);
@@ -60,7 +61,7 @@ public class Main extends PApplet {
                     fill(255, 0, 0);
                     square(x1, y1, 50);
                     fill(255, 255, 255);
-                    square(x1+2, y1+2, 46);
+                    square(x1 + 2, y1 + 2, 46);
                 }
             }
         }

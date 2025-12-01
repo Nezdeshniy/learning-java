@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -19,14 +20,14 @@ public class Main extends PApplet {
     @Override
     public void setup() {
         try {
-            String v1 =  JOptionPane.showInputDialog(null, "Вводи ширину доски:");
-            String v2 =  JOptionPane.showInputDialog(null, "Вводи высоту доски:");
+            String v1 = JOptionPane.showInputDialog(null, "Вводи ширину доски:");
+            String v2 = JOptionPane.showInputDialog(null, "Вводи высоту доски:");
             //"123" -> 123
             width = Integer.parseInt(v1);
             height = Integer.parseInt(v2);
-        }catch (Exception e) {
-            String v1 =  JOptionPane.showInputDialog(null, "Вводи ширину доски:");
-            String v2 =  JOptionPane.showInputDialog(null, "Вводи высоту доски:");
+        } catch (Exception e) {
+            String v1 = JOptionPane.showInputDialog(null, "Вводи ширину доски:");
+            String v2 = JOptionPane.showInputDialog(null, "Вводи высоту доски:");
             //"123" -> 123
             width = Integer.parseInt(v1);
             height = Integer.parseInt(v2);
@@ -51,12 +52,12 @@ public class Main extends PApplet {
                 // j = 1 => x1 = 350
                 int y1 = y + i * 50;
                 // i = 0 => y1 = 300
-                if((i + j) % 2 == 0){
+                if ((i + j) % 2 == 0) {
                     fill(255, 255, 255);
-                }
-                else {
+                } else {
                     fill(0, 0, 0);
-                };
+                }
+                ;
                 // j = 0 => x1 = 300, y1 = 300
                 // j = 1 => x1 = 350, y1 = 300
                 square(x1, y1, 50);
@@ -65,7 +66,7 @@ public class Main extends PApplet {
                     fill(255, 0, 0);
                     square(x1, y1, 50);
                     fill(255, 255, 255);
-                    square(x1+2, y1+2, 46);
+                    square(x1 + 2, y1 + 2, 46);
                 }
             }
         }
