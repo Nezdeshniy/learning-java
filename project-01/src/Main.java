@@ -52,7 +52,12 @@ public class Main extends PApplet {
                 // j = 1 => x1 = 350
                 int y1 = y + i * 50;
                 // i = 0 => y1 = 300
-                fill(255, 255, 255);
+                if ((i + j) % 2 == 0) {
+                    fill(255, 255, 255);
+                } else {
+                    fill(0, 0, 0);
+                }
+                ;
                 // j = 0 => x1 = 300, y1 = 300
                 // j = 1 => x1 = 350, y1 = 300
                 square(x1, y1, 50);
