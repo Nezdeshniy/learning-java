@@ -2,56 +2,66 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
 
-    /// Полями
-    /// Глобальными переменными
-    public static float initValue;
-    public static float deltaY; // null
-    public static float y;
-    public static float deltaX;
-    public static float x;
+    int count = 40;
 
-    /// 1
+    float[] x;
+    float[] y;
+    float[] speed;
+    float[] angle;
+    float[] R;
+
     @Override
     public void settings() {
         size(800, 600);
     }
 
-    /// 2
     @Override
     public void setup() {
-        initValue = PI / 8;
-        deltaY = 1;
-        y = 0;
-        deltaX = 10;
-        x = 0;
+        x = new float[count];
+        y = new float[count];
+        speed = new float[count];
+        angle = new float[count];
+        R = new float[count];
+
+        for (int i = 0; i < count; i++) {
+            x[i] = random(0, width);
+            y[i] = random(-height, 0);
+            speed[i] = random(0.5f, 3.5f);
+            angle[i] = random(0, TWO_PI);
+            R[i] = random(10, 40);
+        }
     }
 
-    /// 3
     @Override
     public void draw() {
         background(0);
         stroke(255);
-        translate(width / 2f, y);
-        rotate(initValue);
-        float R = 30;
 
-        line(-R, 0, R, 0);
-        line(0, -R, 0, R);
+        for (int i = 0; i < count; i++) {
+            pushMatrix();
+            translate(x[i], y[i]);
+            rotate(angle[i]);
 
-        float d = R / sqrt(2);
+            float r = R[i];
+            line(-r, 0, r, 0);
+            line(0, -r, 0, r);
 
-        line(-d, -d, d, d);
-        line(-d, d, d, -d);
+            float d = r / sqrt(2);
+            line(-d, -d, d, d);
+            line(-d, d, d, -d);
 
+            popMatrix();
 
-        initValue += 0.06f;
-        y += deltaY;
+            angle[i] += 0.03f;
+            y[i] += speed[i];
 
-        if (y > 500) {
-            y = 0;
+            if (y[i] > height + R[i]) {
+                y[i] = -R[i];
+                x[i] = random(0, width);
+                speed[i] = random(0.5f, 3.5f);
+            }
         }
     }
-
 
     public static void main(String[] args) {
         PApplet.main("Main");
