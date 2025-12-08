@@ -60,13 +60,15 @@ public class Main extends PApplet {
                 ;
                 // j = 0 => x1 = 300, y1 = 300
                 // j = 1 => x1 = 350, y1 = 300
+                stroke(0);
+                strokeWeight(1);
                 square(x1, y1, 50);
 
                 if (mouseX >= x1 && mouseY >= y1 && mouseX <= x1 + 50 && mouseY <= y1 + 50) {
-                    fill(255, 0, 0);
-                    square(x1, y1, 50);
-                    fill(255, 255, 255);
-                    square(x1 + 2, y1 + 2, 46);
+                    stroke(255, 0, 0);
+                    strokeWeight(3);
+                    noFill();
+                    square(x1+2, y1+2, 46);
                 }
             }
         }
